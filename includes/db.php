@@ -2,7 +2,7 @@
 
 $server="localhost";
 $username="Shivanshu";
-$password="Shiv@0608";
+$password="password";
 $database="upcPortal";
 
 $conn = mysqli_connect($server,$username,$password,$database);

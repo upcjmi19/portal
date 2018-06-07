@@ -1,0 +1,16 @@
+/******************************Daily Log By @mohmaya*************************************/
+Began the project with some pieces from one of my previous project. Planning to keep the basic theme of this project to be greenish.
+The database's login ID and password can be changed in the file: "root/includes/db.php".
+The database uptil today can be created by importing "07_06_2018.sql" file present in the folder "support files".
+
+WORK DONE:
+	1. Created the root index.php page
+	2. Created the recover.php page that takes loginID and Email, checks if the email is the associated one with the login page. and generates a new password and mails it to the user alongside updating it in the database.
+
+	3. Created two users in the 'loginBase' Table:
+			User 		: Password 	: Rank
+			15BCS0075 	: 15BCS0075	: 3	
+			TPOID0001	: TPOID0001	: 1
+
+
+
