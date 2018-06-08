@@ -1,4 +1,6 @@
 <?php
+    require("./vendor/autoload.php");
+    require("./vendor/phpmailer/phpmailer/src/PHPMailer.php");
 
     /**********************HELPER FUNCTIONS*************************/
 
@@ -58,7 +60,7 @@ DELIMITER;
     }
 
     function  send_email($email, $subject, $msg){
-        $mail = new PHPMailer();
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
 
         $mail->isSMTP();
         $mail->Host = Config::SMTP_HOST;
