@@ -275,7 +275,6 @@ DELIMITER;
         }else{
             return 0;
         }
-
     }
 
 
@@ -291,9 +290,13 @@ DELIMITER;
                 $row = fetch_array($result);
                 $password = $row['password'];
                 if ($password === strtoupper(md5($old_password))) {
-                    update_password($email,$new_password);
-                    display_success("Password Updated Successfully");
-                    redirect("../logout.php");
+                    if(update_password($loginID,$new_password)){
+                        redirect("../logout.php");
+                    }else{
+                        display_error("Error Updating Password");
+                    }
+                    
+                    #redirect("../logout.php");
                 } else {
                     display_error("Old Password Is Wrong");
                 }
