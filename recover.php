@@ -1,4 +1,6 @@
 <?php
+require("./vendor/autoload.php");
+require("./vendor/phpmailer/phpmailer/src/PHPMailer.php");
 include("includes/init.php");
 ?>
     <!DOCTYPE html>

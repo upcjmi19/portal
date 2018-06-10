@@ -1,7 +1,5 @@
 <?php
-    require("./vendor/autoload.php");
-    require("./vendor/phpmailer/phpmailer/src/PHPMailer.php");
-
+    
     /**********************HELPER FUNCTIONS*************************/
 
     function clean($string){
@@ -152,8 +150,36 @@ DELIMITER;
                     display_error("You have not benn registered yet");
                 }elseif($tempR==42){
                     display_error("Awwwww! Seems you misplaced your password. Try Again");
+                }elseif($tempR==1){
+                    //An Officer has signed in
+                    //display_success("Passwords match ".$tempR);
+                    redirect("user_officer/index.php");
+                }elseif($tempR==2){
+                    //A content team member has signed in
+                    //display_success("Passwords match ".$tempR);
+                    redirect("user_content/index.php");
+                }elseif($tempR==3){
+                    //A technical team member has signed in
+                    //display_success("Passwords match ".$tempR);
+                    redirect("user_technical/index.php");
+                }elseif($tempR==4){
+                    //A research team member has signed in
+                    //display_success("Passwords match ".$tempR);
+                    redirect("user_research/index.php");
+                }elseif($tempR==5){
+                    //A relationship team member has signed in
+                    //display_success("Passwords match ".$tempR);
+                    redirect("user_relationship/index.php");
+                }elseif($tempR==6){
+                    //A student has signed in
+                    //display_success("Passwords match ".$tempR);
+                    redirect("user_student/index.php");
+                }elseif($tempR==7){
+                    //An Alumni has signed in
+                    //display_success("Passwords match ".$tempR);
+                    redirect("user_alumni/index.php");
                 }else{
-                    display_success("We in that baby");    //For Dev purposes only
+                    display_error("Some Error Occured ".$tempR);
                 }
             }
 
@@ -177,12 +203,12 @@ DELIMITER;
                 //SET SESSION VARIABLES HERE LATER ON
                 $_SESSION['loginID'] = $loginID;
                 $_SESSION['rank'] = $rank;
-//                if($remember == "1"){
-//                    setcookie('loginID',escape($loginID),time()+86400);
-//                    setcookie('password',escape(md5($password)),time()+86400);
-//                    setcookie('username',escape($row['username']),time()+86400);
-//                    setcookie('rank',escape($row['rank']),time()+86400);
-//                }
+                if($remember == "1"){
+                    setcookie('loginID',escape($loginID),time()+86400);
+                    setcookie('password',escape(md5($password)),time()+86400);
+                    setcookie('username',escape($row['username']),time()+86400);
+                    setcookie('rank',escape($row['rank']),time()+86400);
+                }
                 return $rank;
             }else {
                 return 42;
@@ -194,7 +220,7 @@ DELIMITER;
 
     /**************************LOGGEDIN FUNCTIONS******************************/
     function logged_in(){
-        if(isset($_SESSION['userID'])){
+        if(isset($_SESSION['loginID'])){
             return true;
         }else{
             return false;

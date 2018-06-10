@@ -1,0 +1,4 @@
+/******************************Daily Log By @mohmaya*************************************/
+Work Done:
+	1. Added 3rd party libraries for easier mailing functionality(Refer Main Documentation for the libraries and related instruction)
+	2. Implemented a password recovery method, where we mail you a new password for your account.

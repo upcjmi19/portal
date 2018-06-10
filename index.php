@@ -3,9 +3,7 @@ include("includes/init.php");
 
 if(logged_in()){
     if($_SESSION['rank']==1){
-        redirect('publisher/index.php');
-    }else{
-        redirect('admin/index.php');
+        redirect('user_officer/index.php');
     }
 }
 ?>

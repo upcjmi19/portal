@@ -1,0 +1,10 @@
+/******************************Daily Log By @mohmaya*************************************/
+WORK DONE:
+	1. Added The Following Users:
+			User 		: Password 	: Rank
+			15BCS0001 	: 15BCS0001	: 2
+			15BCS0002	: 15BCS0002	: 4
+			15BCS0005	: 15BCS0005	: 5
+			15BCS0003	: 15BCS0003	: 6
+			15BCS0004	: 15BCS0004	: 7
+	2. Added session management for each kind of user along with their dashboard pages 
