@@ -154,6 +154,7 @@ DELIMITER;
                     //An Officer has signed in
                     //display_success("Passwords match ".$tempR);
                     redirect("user_officer/index.php");
+//                    display_success($_SESSION['name']);
                 }elseif($tempR==2){
                     //A content team member has signed in
                     //display_success("Passwords match ".$tempR);
@@ -201,13 +202,23 @@ DELIMITER;
             $db_password = $row['password'];
             if(strtoupper(md5($password)) === $db_password){
                 //SET SESSION VARIABLES HERE LATER ON
+                $query = "SELECT `loginID`, `emailID`, `name`, `sex` FROM `userBase` WHERE `loginID`='".escape($loginID)."'";
+                $result = query($query);
+                $row = fetch_array($result);
+                $_SESSION['name'] = $row['name'];
+                
+                if($row['sex'] == 'M'){
+                    $_SESSION['gender'] = 'Mr. ';
+                }else{
+                    $_SESSION['gender'] = 'Ms. ';
+                }
                 $_SESSION['loginID'] = $loginID;
                 $_SESSION['rank'] = $rank;
                 if($remember == "1"){
                     setcookie('loginID',escape($loginID),time()+86400);
                     setcookie('password',escape(md5($password)),time()+86400);
-                    setcookie('username',escape($row['username']),time()+86400);
-                    setcookie('rank',escape($row['rank']),time()+86400);
+                    setcookie('username',escape($row['name']),time()+86400);
+                    setcookie('rank',escape($rank),time()+86400);
                 }
                 return $rank;
             }else {

@@ -25,7 +25,9 @@
 </head>
 <body style="background-color: #26A65B; height: 100%;">
     <div class="jumbotron" style="margin-left: 5%;margin-right: 5%;margin-top: 10px;background-color: #ffffff;text-align: center;">
-        <h1>Welcome, TECHNO</h1>
+        <h1>Welcome <?php 
+                echo $_SESSION['gender'].$_SESSION['name'].",";
+            ?></h1>
         <h4>What's on your mind today?</h4>
     </div>
 </body>
